@@ -1,0 +1,26 @@
+@model IEnumerable<PaymentAggregator.Models.Case>
+@{
+    ViewBag.Title = "Кейсы и истории успеха";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="page-title">Истории успеха клиентов</h1>
+<p class="page-subtitle">Узнайте, как бизнес из различных индустрий автоматизирует свои платежные бизнес-процессы</p>
+
+<div class="cases-grid">
+    @foreach (var item in Model)
+    {
+        <div class="case-card">
+            <img src="@item.ImageUrl" alt="@item.Title" class="case-card-image" />
+            <div class="case-card-body">
+                <div class="case-meta">
+                    <span class="case-badge">@item.Category</span>
+                    <span class="case-date">@item.CreatedDate.ToString("dd.MM.yyyy")</span>
+                </div>
+                <h2 class="case-card-title">@item.Title</h2>
+                <p class="case-card-desc">@item.BriefDescription</p>
+                <a href="/cases/@item.Alias" class="btn-primary">Читать полностью</a>
+            </div>
+        </div>
+    }
+</div>
