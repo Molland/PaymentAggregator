@@ -61,22 +61,25 @@
         <div class="toast-notification error" id="toastNotice">@ViewBag.ErrorMessage</div>
     }
 
-    <form action="" method="post">
+    <form action="" method="post" id="reviewForm">
         @Html.AntiForgeryToken()
 
         <div class="form-group">
             <label class="form-label" for="Name">Ваше имя *</label>
             <input type="text" id="Name" name="Name" class="form-control" required />
+            <span class="error-msg"></span>
         </div>
 
         <div class="form-group">
             <label class="form-label" for="Email">Электронная почта *</label>
             <input type="email" id="Email" name="Email" class="form-control" required />
+            <span class="error-msg"></span>
         </div>
 
         <div class="form-group">
             <label class="form-label" for="Text">Текст отзыва *</label>
             <textarea id="Text" name="Text" rows="5" class="form-control" required></textarea>
+            <span class="error-msg"></span>
         </div>
 
         <button type="submit" class="btn-primary" style="width: 100%; padding: 14px; cursor: pointer;">Отправить отзыв</button>
